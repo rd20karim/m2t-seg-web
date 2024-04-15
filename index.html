@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Motion2Language mapping and time synchronization through local reccurrent attention">
+  <meta name="keywords" content="Motion segmentation, Local recurrent attention, Synchronization, Unsupervised learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motion2language, unsupervised learning of synchronized semantic motion segmentation</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/local_recurrent_attention.PNG">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Motion2language, unsupervised learning of <span style="color: goldenrod;">synchronized</span> semantic motion segmentation</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="">Karim Radouane</a>,</span>
+            <span class="author-block">
+              <a href="">Andon Tchechmedjiev</a>,</span>
+            <span class="author-block">
+              <a href="">Julien Lagarde</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Sylvie Ranwez</a>
+            </span>
+          </div>
+
+         <br/>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">EuroMovDHM, University of Montpellier, IMT Mines Ales</span>
+          </div>
+<br/>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://link.springer.com/epdf/10.1007/s00521-023-09227-z?sharing_token=YrUK4rjCVvroLcdPW_wgffe4RwlQNchNByi7wbcMAY78SE_ehDTlEAMngsMFB353ZcAy13L8K6m_ZAM36z-5O-Fom-ddsCq6QHCUvgA6G1RNL_LspuHgHgz4FTJcVUjVilF3Zd872mHtx2NUdAMBaAyXDI0OGIckD5K32F6oYoc%3D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Journal</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.10594v2"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rd20karim/M2T-Segmentation"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/attention_sample_9.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/walkBack_crouches.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/attention_sample_24.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/attention_sample_63.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/KIT-ML_/pick_something.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/KIT-ML_/attention_sample_101.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/KIT-ML_/attention_sample_104.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+
+
+
+
+        <div class="item ">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/attention_sample_38.mp4"
+                    type="video/mp4">
+          </video>
+          </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/attention_sample_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/balance_onRightLeg.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item ">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/HumanML3D_/warmUp_roll_ankle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we investigate building a sequence to sequence architecture for motion to language translation and synchronization.
+            The aim is to translate motion capture inputs into English natural-language descriptions, such that the descriptions are generated synchronously with the actions performed, enabling semantic segmentation as a byproduct, but without requiring synchronized training data.
+
+          </p>
+          <p>
+            We propose a new recurrent formulation of local attention that is suited for synchronous text generation, as well as an improved motion encoder architecture better suited to smaller data and for synchronous generation.
+            We evaluate both contributions in individual experiments, using the standard BLEU4 metric, as well as a simple semantic equivalence measure, on the KIT motion language dataset.
+            In a follow-up experiment, we assess the quality of the synchronization of generated text in our proposed approaches through multiple evaluation metrics.
+            We find that both contributions to the attention mechanism and the encoder architecture additively improve the quality of generated text (BLEU and semantic equivalence), but also of synchronization.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Local Recurrent Attention</h2>
+          <p>
+            Using <i>local recurrent attention</i> weights we can derive synchronization information between motion and words.
+          </p>
+          <ul>
+            <li style="font-weight: bold;">Compositional motion</li>
+          </ul>
+            <img src="./static/images/local_recurrent_attention.PNG"
+                 class="paper-image"
+                 alt=""/>
+          
+          <br/>
+          <ul>
+            <li style="font-weight: bold;">Single action</li>
+          </ul>
+            <img src="./static/images/stomp_loc_rec_att.PNG"
+            class="paper-image"
+            alt=""/>
+
+          <br/>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="title is-3">Motion Frozen in Time</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              We can use attention weights as transparency level of motion frames and better visualize synchronization.
+            </p>
+            <br/>
+
+            <img src="./static/images/frozen_motions.png"
+                 class="paper-image"
+                 alt=""/>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <br/>
+
+    <!-- Methods. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3"> Graphical abstract</h2>
+            <img src="./static/images/approach.jpg"
+                 class="paper-image"
+                 alt=""/>
+      </div>
+    </div>
+        <br/>
+        <!--/ Comparison. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Comparison</h2>
+      <p>The novelty of our approach stems from the ability to infer local mapping
+      between motion primitives and their subtitles using local recurrent attention enabling for the first time a synchronized captioning.</p>
+
+        <br/>
+        <br/>
+
+        <img src="./static/images/comparison_approach.PNG"
+                 class="paper-image"
+                 alt=""/>
+
+      </div>
+    </div>
+    <!--/ Comparison. -->
+
+    <h2 class="title is-3">Segmentation process</h2>    
+    <p>
+For quantitative evaluation we define motion and language segments and use metrics such as IoU.</p>
+
+<br>
+
+      <img src="./static/images/lang_motion_seg.PNG"
+ class="paper-image"
+ alt=""/>
+
+      </div>
+    </div>
+    <!--/ Methods. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{radouane23motion2language,
+        author={Radouane, Karim and Tchechmedjiev, Andon and Lagarde, Julien and Ranwez, Sylvie},
+        title={Motion2language, unsupervised learning of synchronized semantic motion segmentation},
+        journal={Neural Computing and Applications},
+        ISSN={1433-3058},
+        url={http://dx.doi.org/10.1007/s00521-023-09227-z},
+        DOI={10.1007/s00521-023-09227-z},
+        publisher={Springer Science and Business Media LLC},
+        year={2023},
+        month=dec}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://hal.science/hal-04251173v1">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/rd20karim" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+
+            Website code based on the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of the <a
+            href="https://nerfies.github.io/">Nerfies</a> project page. 
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
